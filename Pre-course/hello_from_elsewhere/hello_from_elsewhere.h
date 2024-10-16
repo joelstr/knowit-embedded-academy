@@ -3,4 +3,9 @@
 
 int hello_from_elsewhere();
 
+typedef enum {
+    SUCCESS = 0,
+    FAILURE = 1
+} Status;
+
 #endif

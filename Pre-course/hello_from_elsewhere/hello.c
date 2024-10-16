@@ -2,5 +2,11 @@
 
 int main() {
     int result = hello_from_elsewhere();
-   return result;
+    int retVal;
+    if (result == SUCCESS) {
+        retVal = 0;
+    } else {
+        retVal = 1;
+    }
+    return result;
 }
