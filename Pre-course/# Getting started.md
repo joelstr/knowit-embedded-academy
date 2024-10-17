@@ -11,4 +11,8 @@ In the linux terminal, run the following commands on your c-file.
 
 `./hello_world`
 
+A shorter way to accomplish the same thing would be to write
+
+`gcc hello_world.c -o hello_world && ./hello_world`
+
 If using VSCode you could also install the extension [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner) which will add a play button in the top right corner of the file in your editor, which you can use to run your code.
