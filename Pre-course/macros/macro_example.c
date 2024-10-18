@@ -6,18 +6,24 @@
 #define DEBUG
 
 // Function-like macros
-#define AREA_OF_CIRCLE(radius) (PI * radius * radius)
+
+#define AREA(a,b) (a*b)
+#define AREA2(a,b) ((a)*(b))
+
+#define AREA_OF_CIRCLE(radius) (PI * (radius) * (radius))
 #define MAX(a,b) ((a > b) ? a : b)
 
 static void calculate_area_of_circle(float radius);
 static void print_debug_message();
 static void print_status();
+static void calculate_area(int a, int b);
 
 int main() {
    printf("Calculating circle radius\n");
    calculate_area_of_circle(5.0);
    print_debug_message();
    print_status();
+   calculate_area(5, 10);
    return 0;
 }
 
@@ -53,4 +59,11 @@ static void print_status()
    #else
       printf("Status is not 1 or 2\n");
    #endif
+}
+
+static void calculate_area(int a, int b)
+{
+   // Increase the value of a and b by 1 then calculate the area
+   printf("Area of rectangle with sides %d and %d is %d\n", a+1, b+1, AREA(a + 1,b + 1));
+   printf("Area of rectangle with sides %d and %d is %d\n", a+1, b+1, AREA2(a + 1,b + 1));
 }

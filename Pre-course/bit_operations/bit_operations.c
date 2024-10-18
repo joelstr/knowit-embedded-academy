@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdint.h>
 
 static void bitwise_and();
 static void bitwise_or();
@@ -76,7 +77,7 @@ static void shift_right()
 static void bitwise_not()
 {
    int a = 0b11001000;	       /* 200 = 1100 1000 */
-   int c = (__uint8_t)~a;      /*  55 = 0011 0111 */
+   int c = (uint8_t)~a;        /*  55 = 0011 0111 */
    printf("a = %d\n", a);
    printf("~a = %d\n", c);
 }
