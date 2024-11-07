@@ -1,5 +1,5 @@
 # Introduction Lab
-In this lab we will make a led blink and stuff, it will be fun.
+In the first lab we will learn the basics around our environment and the OS we are using.
 
 ## Run, build and debug code
 
