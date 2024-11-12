@@ -1,11 +1,15 @@
 # Introduction Lab
-In the first lab we will learn the basics around our environment and the OS we are using. To do this we need [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html). 
+In the first lab we will learn the basics around our environment and the OS we are using. To do this we need to install [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html). Just click through the installation with default settings, then all needed drivers will be installed as well.
 
 ## Run, build and debug code
-A starting point for the lab is available in the IntroductionLab folder. Open the .project file in STM32CubeIDE to view the code. You should now be able to build the project, by pressing Ctrl+B or the hammer in the toolbar.
+A starting point for the lab is available in the IntroductionLab folder. Open the .project file in STM32CubeIDE to view the code, you might get a warning that the project is generated in an older version of STM32Cube, you can just proceed and the project will be converted accordingly. You should now be able to build the project, by pressing Ctrl+B or the hammer in the toolbar.
 ![Build](Images/hammer.png) 
 
-If we have the devkit connected we should also be able to debug the code on target. Pressing F11 or the insect in the toolbar will trigger a debug. ![Debug](Images/insect.png) 
+You might get a warning stating "IntroductionLab.elf has a LOAD segment with RWX permissions". This warning could be ignored, it is related to backwards compatability with different compilers, everything should work fine regardless.
+
+If we have the devkit connected we should also be able to debug the code on target. Pressing F11 or the insect in the toolbar will trigger a debug session. ![Debug](Images/insect.png) 
+The first time you might need to click the small arrow next to the bug and change your debug configuration. In the list you should be able to find IntroductionLab Debug which you can select and the press debug.
+![DebugConfiguration](Images/debugconfiguration.png)
 
 This will automatically build the project, upload it to target and start a debugging session by breaking on the first line in main(). If prompted to switch view when starting a debugging session it is recommended to switch.
 
