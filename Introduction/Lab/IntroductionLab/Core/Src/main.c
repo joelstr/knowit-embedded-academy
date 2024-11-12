@@ -23,7 +23,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "blink.h"
+#include "button_toggle.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -281,6 +282,7 @@ void StartButtonFunction(void *argument)
   /* Infinite loop */
   for(;;)
   {
+    ButtonToggle(); // Toggle led state on button press
     osDelay(1);
   }
   /* USER CODE END 5 */
@@ -299,6 +301,7 @@ void StartBlinkFunction(void *argument)
   /* Infinite loop */
   for(;;)
   {
+	BlinkLed(); // Toggle led state every 10 seconds
     osDelay(1);
   }
   /* USER CODE END StartBlinkFunction */
