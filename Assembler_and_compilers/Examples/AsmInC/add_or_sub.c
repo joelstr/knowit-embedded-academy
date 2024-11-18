@@ -16,12 +16,12 @@ void AddOrSub()
         "       mov r1, #4          \n\t"
         "       mov r2, #23         \n\t"
         "       cmp r1, r2          \n\t"
-        "       ble _jump           \n\t"
+        "       ble .jump           \n\t"
         "       sub r3, r1, r2      \n\t"
-        "       b _exit             \n\t"
-        "_jump:                     \n\t"
+        "       b .exit             \n\t"
+        ".jump:                     \n\t"
         "       add r3, r1, r2      \n\t"
-        "_exit:                     \n\t"
+        ".exit:                     \n\t"
         "       mov %[result], r3   \n\t"
         : [result] "=r" (y)
     );
