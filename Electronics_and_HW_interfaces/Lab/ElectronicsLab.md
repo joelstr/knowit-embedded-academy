@@ -10,7 +10,7 @@ There are also some legal issues with the STM32 HAL drivers meaning you will nee
 
 In the provided project button_toggle.c has been modified and most of the logic is already implemented, the only missing part is the driver part.
 
-![Code](Images/code.png)
+![Code](Images/Code.png)
 
 ### Selecting resistors
 To start of, we need to get a voltage input to test with. We will connect two resistors between the 5V output and the A0 input (connected to ADC1) and the A0 input and GND.
