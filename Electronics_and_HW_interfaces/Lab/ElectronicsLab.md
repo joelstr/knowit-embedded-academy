@@ -4,7 +4,7 @@ In the third lab we will write out first driver to read from an analog to digita
 
 ## Implementing the driver 
 
-The blinking led from last week was a great success, however, there have been requests on being able to automate the process. Pushing the button was just to cumbersome, instead it is desired to use an analog signal to indicate whether the the led should be lit or not. If the input voltage is 2-3 V the led should be lit, otherwise it should be turned off. With this automation there is no longer any need for the led to blink every 10 seconds.
+The blinking led from last week was a great success, however, there have been requests on being able to automate the process. Pushing the button was just too cumbersome, instead it is desired to use an analog signal to indicate whether the LED should be lit or not. If the input voltage is 2-3 V the LED should be lit, otherwise it should be turned off. With this automation there is no longer any need for the LED to blink every 10 seconds.
 
 There are also some legal issues with the STM32 HAL drivers meaning you will need to write the drivers yourself instead of just calling the already included HAL drivers.
 
@@ -13,10 +13,11 @@ In the provided project button_toggle.c has been modified and most of the logic 
 ![Code](Images/code.png)
 
 ### Selecting resistors
-To start of, we need to get a voltage input to test with. We will connect two resistors between the 5V output and the A0 input (connected to ADC1) and the A0 input and GND.
+To start of, we need to get a voltage input to test with. We will connect two resistors between the 5 V output and the A0 input (connected to ADC1) and the A0 input and GND.
 
 ![Resistors](Images/Resistors.png)
-Since 5V is to large for input to our processor we need to make a voltage divider to get a proper input. Select good values for R1 and R2 to get a voltage between 2 and 3 volts at A0. Since we only need the voltage, it is recommended to use resistors of at least 10k Ohm. If you would like to simluate your selection, [LTSpice](https://www.analog.com/en/resources/design-tools-and-calculators/ltspice-simulator.html) is a great free tool.
+
+Since 5V is to large for input to our processor we need to make a voltage divider to get a proper input. Select good values for R1 and R2 to get a voltage between 2 and 3 V at A0. Since we only need the voltage, it is recommended to use resistors of at least 10 kΩ. If you would like to simluate your selection, [LTSpice](https://www.analog.com/en/resources/design-tools-and-calculators/ltspice-simulator.html) is a great free tool.
 
 If you have access to a multimeter you can also use this to measure that you got the expected value.
 
@@ -37,10 +38,10 @@ You can also use [PuTTY](https://www.putty.org/).
 
 ![Putty](Images/Putty.png)
 
-On Linux it should be possible to use screen for this, but I didn't manage to get it working with WSL. (Let me know if you solve that :))
+On Linux, you can use `screen` for this, but I didn't manage to get it working with WSL. (Let me know if you solve that :))
 
 ### Initializing the driver
-Once our resistors are selected and connected we are ready to start with the driver. The first thing to do is to initialize it properly. The AdcInit function is called in the main function together with all the other initializers.
+Once our resistors are selected and connected we are ready to start with the driver. The first thing to do is to initialize it properly. The `AdcInit` function is called in the main function together with all the other initializers.
 
 We can read more about how the ADC works in the [reference manual](rm0365-stm32f302xbcde-and-stm32f302x68-advanced-armbased-32bit-mcus-stmicroelectronics.pdf), also available in the repo.
 
@@ -70,4 +71,4 @@ Once we've recieved the rawValue from the ADC, we need to calculate the actual v
 
 Once `mV` is properly calculated we should have a function where the led is on while `R1` is connected on off when it is not. You should be able to add and remove it to toggle the led. Feel free to try with other resistors and see how it behaves.
 
-Note that this is a very basic ADC driver. In general, there are a lot of other aspects to consider. You might notice (depending on your solution) that the first conversion of the register always becomes 0, and if you remove R1 the voltage doesn't become quite zero, as you would expect. For the automation of the led toggle function this is enough and your project manager is happy with the results, so we'll leave it here, but for future projects there might be a need for more detailed initialization and sampling. Or you can just use the HAL drivers provided by the manufacturer.
+Note that this is a very basic ADC driver. In general, there are a lot of other aspects to consider. You might notice (depending on your solution) that the first conversion of the register always becomes 0, and if you remove R1 the voltage doesn't become quite zero, as you would expect. For the automation of the led toggle function this is enough and your project manager is happy with the results, so we'll leave it here, but for future projects there might be a need for more detailed initialization and sampling, or you can just use the HAL drivers provided by the manufacturer.
