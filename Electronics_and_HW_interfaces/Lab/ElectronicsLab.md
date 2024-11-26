@@ -8,7 +8,7 @@ The blinking LED from last week was a great success, however, there have been re
 
 There are also some legal issues with the STM32 HAL drivers, meaning you will need to write the drivers yourself instead of just calling the already included HAL drivers.
 
-In the provided project `button_toggle.c` has been modified and most of the logic is already implemented, the only missing part is the driver part.
+In the provided project `button_toggle.c` has been modified and most of the logic is already implemented, the only missing part is the driver part. The execution frequency of the function is also reduced from 1000 Hz to 10 Hz. Since we are implementing a very basic driver, this is enough, and actually helps us a bit.
 
 ![Code](Images/Code.png)
 
