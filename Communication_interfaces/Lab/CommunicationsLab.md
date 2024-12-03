@@ -9,6 +9,14 @@ Your colleague has written a small program which the device under test (DUT) nee
 
 The first requirement is a heartbeat from the DUT. Every 100 ms the DUT should send the string "1001" on UART so the test equipement can determine that the DUT is present.
 
+```
+commandName     commandNumber   commandValue
+Hearbeat        1001            -         
+
+Format:
+commandNumber\n
+```
+
 Last week we already used the function `UartPrint()` to send data over UART, if we can make sure it sends the correct command with the correct frequency this shouldn't be a problem. We also know that `ButtonToggle()` is called every 100 ms.
 
 When you launch `comMaster.exe` a window should pop up where you can connect and disconnect to the proper COM port. It also has some other functions we will look into later.
@@ -22,6 +30,7 @@ Note, the person who implemented comMaster.exe is possibly not qualified to make
 Once we got the heartbeats working we should implement the toggle led command. Your colleague has implemented the command as follows:
 ```
 commandName     commandNumber   commandValue
+Hearbeat        1001            -         
 ToggleLed       2002            0/1         0=led off, 1=led on
 
 Format:
@@ -37,6 +46,7 @@ Implement the command such that the led turns on when receiving the led on comma
 The last test required to be performed is the blink functionality. Your colleague has implemented a command for this as well. The full command table looks like follows.
 ```
 commandName     commandNumber   commandValue
+Hearbeat        1001            -         
 BlinkLed        2001            0-10000     ms the led should be on and off
 ToggleLed       2002            0/1         0=led off, 1=led on
 
