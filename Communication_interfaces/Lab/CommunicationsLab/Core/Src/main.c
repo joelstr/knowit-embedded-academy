@@ -43,7 +43,6 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-UART_HandleTypeDef huart2;
 
 /* Definitions for ButtonFunction */
 osThreadId_t ButtonFunctionHandle;
