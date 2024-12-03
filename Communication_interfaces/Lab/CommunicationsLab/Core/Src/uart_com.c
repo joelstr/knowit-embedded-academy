@@ -34,5 +34,5 @@ void UartPrint(char *msg, uint16_t size)
 
 void UartRecieve(uint8_t *msg, uint16_t size)
 {
-	HAL_UART_Receive(&huart2, msg, size, 100);
+
 }
